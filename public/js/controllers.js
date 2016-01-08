@@ -1,4 +1,4 @@
-var ciViewApp = angular.module('ciViewApp', []);
+var ciViewApp = angular.module('ciViewApp', ['masonry']);
 
 ciViewApp.factory('socket', function($rootScope) {
     var socket = io.connect();

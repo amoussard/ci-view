@@ -12,22 +12,22 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/angular-masonry-directive.js"></script>
     <script src="js/controllers.js"></script>
 
-    <style>
-        panel {
-            margin: 1em;
-        }
-    </style>
   </head>
     <body ng-controller="ProjectListCtrl">
-        <div class=" col-sm-3" ng-repeat="project in projects">
-            <div class="panel panel-default">
-                <div class="panel-heading">{{ project.name }}</div>
-                <div class="panel-body">
-                    <ul class="list-group">
-                        <li class="list-group-item list-group-item-{{ branch.status }}" ng-repeat="branch in project.branches">{{ branch.name }}</li>
-                    </ul>
+        <div masonry='{ "transitionDuration" : "0.4s", "itemSelector" : ".tile"}'>
+            <div masonry-tile class="col-sm-3 tile" style="visibility: visible" ng-repeat="project in projects">
+                <div class="panel panel-default">
+                    <div class="panel-heading">{{ project.name }}</div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-{{ branch.status }}" ng-repeat="branch in project.branches">{{ branch.name }}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
