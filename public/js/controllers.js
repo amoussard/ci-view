@@ -39,7 +39,7 @@ ciViewApp.controller('ProjectListCtrl', function ($scope, socket) {
         if ($scope.projects[project.name]) {
             if (!$scope.projects[project.name]['branches'][project.branch]) {
                 $scope.projects[project.name]['branches'][project.branch] = {
-                    name: project.branch
+                    name: decodeURIComponent(project.branch)
                 };
             }
 
