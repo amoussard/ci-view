@@ -22,7 +22,7 @@ app.post('/hooks/circle', function(req, res){
     sockets.forEach(socket => {
         socket.emit('new_project', {
             name: project.reponame,
-            branch: project.branch,
+            branch: decodeURIComponent(project.branch),
             status: project.status
         });
     });
@@ -50,7 +50,7 @@ io.on('connection', function(socket) {
 
                 socket.emit('new_project', {
                     name: project.reponame,
-                    branch: branchName,
+                    branch: decodeURIComponent(branchName),
                     status: lastBuild.status
                 });
             }

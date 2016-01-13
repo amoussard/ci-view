@@ -45,7 +45,7 @@ ciViewApp.controller('ProjectListCtrl', function ($scope, socket) {
         if ($scope.projects[project.name]) {
             if (!$scope.projects[project.name]['branches'][project.branch]) {
                 $scope.projects[project.name]['branches'][project.branch] = {
-                    name: decodeURIComponent(project.branch)
+                    name: project.branch
                 };
             }
 
@@ -57,7 +57,7 @@ ciViewApp.controller('ProjectListCtrl', function ($scope, socket) {
             };
 
             $scope.projects[project.name]['branches'][project.branch] = {
-                name: decodeURIComponent(project.branch),
+                name: project.branch,
                 status: statusToClasses[project.status]
             };
         }
